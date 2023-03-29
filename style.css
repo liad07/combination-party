@@ -1,0 +1,48 @@
+    body {
+        background-color: #94d6f4;
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+
+    input[type="text"] {
+        text-align: center;
+        margin-top: 30px;
+        background-color: #fff;
+        border: none;
+        border-radius: 4px;
+        box-shadow: none;
+        color: #555;
+        font-size: 20px;
+        height: 40px;
+        margin-right: 10px;
+        outline: none;
+        padding: 10px;
+    }
+
+    button {
+        margin-top: 5px;
+        background-color: #29b0ff;
+        border: none;
+        border-radius: 4px;
+        box-shadow: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        height: 40px;
+        outline: none;
+        padding: 0 20px;
+        text-transform: uppercase;
+    }
+
+    textarea {
+        text-align: center;
+        margin-top: 5px;
+        font-size: 20px;
+        width: 500px;
+        height: 200px;
+        background-color: white;
+    }
