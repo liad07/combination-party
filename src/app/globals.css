@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(54, 217, 255, 0.11), transparent 30rem),
+    radial-gradient(circle at 92% 22%, rgba(155, 123, 255, 0.12), transparent 32rem),
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    #070b16;
+  background-size: auto, auto, 3rem 3rem, 3rem 3rem, auto;
+  color: #eef5ff;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid #36d9ff;
+  outline-offset: 3px;
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-3xl border border-white/10 bg-panel/75 shadow-glow backdrop-blur-xl;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-white/15 bg-black/25 px-4 py-3 text-white transition placeholder:text-slate-500 hover:border-white/25 focus:border-cyan/60;
+  }
+
+  .primary-button {
+    @apply rounded-xl bg-cyan px-5 py-3 font-black text-ink shadow-[0_10px_30px_rgba(54,217,255,.18)] transition hover:-translate-y-0.5 hover:bg-cyan/90 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0;
+  }
+
+  .secondary-button {
+    @apply rounded-xl border border-white/15 bg-white/5 px-4 py-3 font-semibold text-slate-100 transition hover:border-white/25 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .step-badge {
+    @apply grid size-9 shrink-0 place-items-center rounded-xl border border-cyan/30 bg-cyan/10 text-sm font-black text-cyan;
+  }
+
+  .sequence-display {
+    @apply flex min-h-28 max-w-full items-center justify-center overflow-hidden rounded-2xl border border-cyan/30 bg-black/30 px-3 font-mono text-[clamp(1.65rem,7vw,3.5rem)] font-black tracking-[0.08em] text-cyan shadow-[inset_0_0_35px_rgba(54,217,255,.05)] sm:px-5 sm:tracking-[0.14em];
+  }
+
+  .interaction-grid {
+    @apply grid min-w-0 gap-5;
+    grid-template-areas:
+      "source"
+      "keypad"
+      "options"
+      "actions";
+  }
+
+  .interaction-source {
+    grid-area: source;
+  }
+
+  .interaction-keypad {
+    grid-area: keypad;
+  }
+
+  .compact-options {
+    grid-area: options;
+    @apply grid min-w-0 gap-3 sm:grid-cols-2;
+  }
+
+  .target-length-control {
+    @apply flex min-h-16 items-center justify-between gap-4 rounded-2xl border border-white/10 bg-black/15 px-4 py-2.5 sm:col-span-2;
+  }
+
+  .compact-toggle {
+    @apply flex min-h-16 cursor-pointer items-center gap-3 rounded-2xl border border-white/10 bg-black/15 px-4 py-2.5 transition hover:border-white/20 hover:bg-white/[0.03];
+  }
+
+  .interaction-actions {
+    grid-area: actions;
+    @apply flex min-w-0 gap-3 border-t border-white/10 pt-5;
+  }
+
+  .stat-card {
+    @apply flex flex-col bg-panel/95 px-5 py-5 sm:px-7;
+  }
+
+  .stat-card span {
+    @apply text-xs font-semibold text-slate-400;
+  }
+
+  .stat-card strong {
+    @apply mt-1 text-2xl font-black text-white sm:text-3xl;
+  }
+
+  .result-card {
+    @apply flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-black/20 p-3 transition hover:border-cyan/20 hover:bg-cyan/[0.04];
+  }
+}
+
+@media (min-width: 1024px) {
+  .interaction-grid {
+    direction: ltr;
+    grid-template-columns: 22rem minmax(0, 1fr);
+    grid-template-areas:
+      "keypad source"
+      "keypad options"
+      "keypad actions";
+    align-items: center;
+    column-gap: 2.5rem;
+  }
+
+  .interaction-source,
+  .interaction-keypad,
+  .compact-options,
+  .interaction-actions {
+    direction: rtl;
+  }
+
+  .interaction-keypad {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
